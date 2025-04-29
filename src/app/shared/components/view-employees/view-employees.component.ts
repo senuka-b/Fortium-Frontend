@@ -26,6 +26,12 @@ export class ViewEmployeesComponent implements OnInit{
     this.loadAllEmployees();
   }
 
+  prettifyDate(date?: string) {
+    if (!date) return "empty!"
+
+    return new Date(date!).toLocaleDateString();
+  }
+
   loadAllEmployees() {
     this.employeeService.getEmployees().subscribe((response) => {
       this.employees = response;
