@@ -16,7 +16,7 @@ export class AddEmployeeComponent {
 
   constructor(private employeeService: EmployeeService) {}
 
-  departmentList = Object.values(DepartmentType);
+  departmentList = Object.values(DepartmentType).filter((element) => element !== DepartmentType.ALL);
 
   employeeName: string = '';
   employeeEmail: string = '';

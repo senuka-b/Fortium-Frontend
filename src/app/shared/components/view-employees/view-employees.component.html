@@ -1,0 +1,75 @@
+
+<h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">View </span>Employees</h1>
+<p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 pb-10">You can search for employees by selection the corresponding search filters. To reset search, clear the search bar! </p>
+
+<div class="pb-7">
+    <label for="department_select" class="sr-only">Department Select</label>
+    <select (ngModelChange)="onDepartmentFilterChange($event)" [(ngModel)]="departmentFilter" name="Department" required id="department_select" class="block py-2.5 w-full text-sm text-gray-500 bg-gray-600 rounded border-0 border-b-2 px-10 border-gray-200 appearance-none dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option *ngFor="let item of departmentList" [value]="item" selected>Filter by <span class="">{{ item }}</span></option>
+    </select>
+</div>
+
+
+<div class="relative mt-1 p">
+    <div class="flex items-center">
+      <!-- Input Field -->
+      <input
+        type="text"
+        (ngModelChange)="onSearchChange($event)"
+        [(ngModel)]="searchText"
+        id="table-search"
+        class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Search for items"
+      />
+  
+      <div class="flex space-x-2 ml-4">
+        <button (click)="search('name')" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+            By Name
+          </span>
+        </button>
+        <button (click)="search('email')" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+            By Email
+          </span>
+        </button>
+       
+      </div>
+    </div>
+  </div>
+  
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">Name</th>
+        <th scope="col" class="px-6 py-3">Department</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of employees"
+        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{item.id}}
+        </th>
+        <td class="px-6 py-4">{{item.email}}</td>
+        <td class="px-6 py-4">{{item.name}}</td>
+        <td class="px-6 py-4">{{item.department}}</td>
+        
+      </tr>
+    
+    </tbody>
+  </table>
+</div>
