@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../service/auth/auth.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -22,8 +22,10 @@ export class LoginComponent {
       Swal.fire({
         icon: "success",
         title: "Welcome!",
-        text: "Welcome to Fortium Partners!"
+        text: "Welcome to Fortium Partners! " + response.fullName
       });
+
+      this.authService.saveToLocalStorage(response.token);
 
       this.router.navigate(["/dashboard/add-employee"])
 
@@ -36,6 +38,5 @@ export class LoginComponent {
     })
   }
 
-  signup() {}
 
 }
