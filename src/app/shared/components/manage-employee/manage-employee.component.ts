@@ -59,17 +59,20 @@ export class ManageEmployeeComponent {
     }
 
     updateEmployee() {
+
       this.employeeService.updateEmployee({
         id: this.employeeID,
         name: this.employeeName,
         email: this.employeeEmail,
         department: this.employeeDepartment,
-        createdAt: this.createdDate,
+        createdAt: new Date(this.createdDate).toISOString(),
         updatedAt: new Date().toISOString()
 
       }).subscribe((response) => {
 
         
+        
+
         Swal.fire(
           {
             icon: "success",
