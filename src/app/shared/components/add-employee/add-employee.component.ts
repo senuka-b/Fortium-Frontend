@@ -50,7 +50,7 @@ export class AddEmployeeComponent {
             icon: 'error',
             title: 'Error',
             text: 'Failed to add employee!',
-            footer: error.error,
+            footer: error.error || "Invalid email / username",
           });
         }
       );
