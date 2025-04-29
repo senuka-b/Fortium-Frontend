@@ -33,8 +33,6 @@ export class AuthService {
   }
 
   getToken() {
-    console.log(localStorage.getItem("auth-token"));
-    
     return localStorage.getItem("auth-token");
   }
 
