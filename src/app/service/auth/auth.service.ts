@@ -29,14 +29,16 @@ export class AuthService {
   }
 
   saveToLocalStorage(token: string) {
-    localStorage.setItem("TOKEN", token);
+    localStorage.setItem("auth-token", token);
   }
 
   getToken() {
-    return localStorage.getItem("TOKEN");
+    console.log(localStorage.getItem("auth-token"));
+    
+    return localStorage.getItem("auth-token");
   }
 
   logout() {
-    localStorage.removeItem("TOKEN");
+    localStorage.removeItem("auth-token");
   }
 }
