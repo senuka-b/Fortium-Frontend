@@ -35,6 +35,9 @@ export class ViewEmployeesComponent implements OnInit{
   loadAllEmployees() {
     this.employeeService.getEmployees().subscribe((response) => {
       this.employees = response;
+    }, (error) => {
+      console.log(JSON.stringify(error));
+      
     });
   }
 
