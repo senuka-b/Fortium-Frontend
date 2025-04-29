@@ -40,7 +40,7 @@ export class ManageEmployeeComponent {
         this.employeeName = response.name;
         this.employeeEmail = response.email;
         this.employeeDepartment = response.department;
-        this.createdDate = this.prettifyDate(this.createdDate),
+        this.createdDate = this.prettifyDate(response.createdAt),
         this.employeeID = response.id!;
 
       }, (error) => {
