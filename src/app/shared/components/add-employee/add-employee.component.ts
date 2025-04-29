@@ -24,10 +24,7 @@ export class AddEmployeeComponent {
   createdDate: string = new Date().toISOString().split('T')[0];
 
   addEmployee() {
-    console.log("yes");
 
-    
-    
 
     if (this.validateFields()) {
       const employee = {
