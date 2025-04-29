@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../service/auth/auth.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -11,7 +15,26 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  login() {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  login() {
+    this.authService.login(this.username, this.password).subscribe((response) => {
+      Swal.fire({
+        icon: "success",
+        title: "Welcome!",
+        text: "Welcome to Fortium Partners!"
+      });
+
+      this.router.navigate(["/dashboard/add-employee"])
+
+    }, (error) => {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Invalid email or password! Please try again"
+      })
+    })
+  }
 
   signup() {}
 
