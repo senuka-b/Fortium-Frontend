@@ -26,6 +26,12 @@ export class ManageEmployeeComponent {
 
     searchText: string = '';
 
+    prettifyDate(date?: string) {
+      if (!date) return "empty!"
+  
+      return new Date(date!).toLocaleDateString();
+    }
+
     searchEmployee() {
       this.employeeService.getEmployeeByEmail(this.searchText).subscribe((response) => {
         console.log(response);
@@ -34,7 +40,7 @@ export class ManageEmployeeComponent {
         this.employeeName = response.name;
         this.employeeEmail = response.email;
         this.employeeDepartment = response.department;
-        this.createdDate = response.createdAt,
+        this.createdDate = this.prettifyDate(this.createdDate),
         this.employeeID = response.id!;
 
       }, (error) => {
