@@ -120,7 +120,7 @@
     <ul class="space-y-2 font-medium">
       <li>
         <a
-          href="#"
+        routerLink="/dashboard/add-employee"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -139,7 +139,7 @@
       </li>
       <li>
         <a
-          href="#"
+        routerLink="/dashboard/view-employees"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -159,7 +159,7 @@
 
       <li>
         <a
-          href="#"
+        routerLink="/dashboard/manage-employees"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -179,7 +179,7 @@
 
       <li>
         <a
-          href="#"
+        routerLink="/dashboard/export"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -228,10 +228,10 @@
 </aside>
 
 <div
-  class="p-4 sm:ml-64 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white h-screen"
+  class="p-4 sm:ml-64 bg-gradient-to-br from-gray-900 h-full via-gray-950 to-black text-white "
 >
   <div
-    class="p-4 border-2 border-gray-200 border-dashed rounded-lg pb-35 dark:border-gray-700 mt-14"
+    class="p-4 border-2 border-gray-200 border-dashed rounded-lg pb-35 h-screen dark:border-gray-700 mt-14"
   >
     <router-outlet></router-outlet>
   </div>

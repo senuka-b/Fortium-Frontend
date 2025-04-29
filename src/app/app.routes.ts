@@ -3,6 +3,7 @@ import { DashboardComponent } from './shared/components/dashboard/dashboard.comp
 import { AddEmployeeComponent } from './shared/components/add-employee/add-employee.component';
 import { ViewEmployeesComponent } from './shared/components/view-employees/view-employees.component';
 import { ManageEmployeeComponent } from './shared/components/manage-employee/manage-employee.component';
+import { ExportComponent } from './shared/components/export/export.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,10 @@ export const routes: Routes = [
             {
                 path: "manage-employees",
                 component: ManageEmployeeComponent
+            },
+            {
+                path: "export",
+                component: ExportComponent
             }
         ]
         
